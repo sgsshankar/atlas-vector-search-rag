@@ -65,6 +65,8 @@ def query_data(query):
 
     retriever_output = qa.invoke(query)
 
+    retriever_output['result'] = retriever_output['result'].replace("\n"," ") 
+
     # Return Atlas Vector Search output, and output generated using RAG Architecture
     return as_output, retriever_output
 
